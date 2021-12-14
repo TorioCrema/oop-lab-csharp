@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Collections
 {
@@ -31,7 +32,16 @@ namespace Collections
         {
             get
             {
-                throw new NotImplementedException("TODO construct and return the list of all users followed by the current users, in all groups");
+                IList<TUser> userList = new List<TUser>();
+                foreach (var users in _followedDictionary.Values.Select(s => s.ToList()))
+                {
+                    foreach (var elem in users)
+                    {
+                        userList.Add(elem);
+                    }
+                }
+
+                return userList;
             }
         }
 
