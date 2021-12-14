@@ -13,28 +13,20 @@ namespace Collections
 
         public bool AddFollowedUser(string group, TUser user)
         {
-            if (_followedDictionary.Keys.Contains(group) && _followedDictionary.TryGetValue(group, out var tempSet))
+            if (!_followedDictionary.Keys.Contains(group))
             {
-                if (tempSet.Contains(user))
-                {
-                    return false;
-                }
-                tempSet.Add(user);
-                return true;
+                _followedDictionary.Add(group, new HashSet<TUser>());
             }
 
-            ISet<TUser> userSet = new HashSet<TUser>();
-            userSet.Add(user);
-            _followedDictionary.Add(group, userSet);
-            return true;
+            return _followedDictionary[group].Add(user);
         }
 
         public IList<TUser> FollowedUsers
         {
             get
             {
-                IList<TUser> userList = new List<TUser>();
-                foreach (var users in _followedDictionary.Values.Select(s => s.ToList()))
+                ISet<TUser> userList = new HashSet<TUser>();
+                foreach (var users in _followedDictionary.Values)
                 {
                     foreach (var elem in users)
                     {
@@ -42,24 +34,20 @@ namespace Collections
                     }
                 }
 
-                return userList;
+                return userList.ToList();
             }
         }
 
         public ICollection<TUser> GetFollowedUsersInGroup(string group)
         {
-            ICollection<TUser> userList = new Collection<TUser>();
-
-            foreach (var users in _followedDictionary.Where(kv => kv.Key == group)
-                .Select(kv => kv.Value.ToList()))
+            if (!_followedDictionary.ContainsKey(group))
             {
-                foreach (var user in users)
-                {
-                    userList.Add(user);
-                }
+                return new List<TUser>();
             }
-
-            return userList;
+            else
+            {
+                return new Collection<TUser>(_followedDictionary[group].ToList());
+            }
         }
     }
 }
