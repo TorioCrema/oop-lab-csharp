@@ -23,6 +23,19 @@ namespace Collections
         public bool IsAgeDefined => Age.HasValue;
 
         // TODO implement missing methods (try to autonomously figure out which are the necessary methods)
-        
+        public bool Equals(IUser other)
+        {
+            return Username == other.Username;
+        }
+
+        public override int GetHashCode()
+        {
+            return Username.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return $"User({Username}" + $", {FullName}" + (IsAgeDefined ? $", {Age}" : "") + ")";
+        }
     }
 }
