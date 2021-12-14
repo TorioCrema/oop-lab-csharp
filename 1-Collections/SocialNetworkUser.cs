@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace Collections
@@ -47,7 +48,18 @@ namespace Collections
 
         public ICollection<TUser> GetFollowedUsersInGroup(string group)
         {
-            throw new NotImplementedException("TODO construct and return a collection containing of all users followed by the current users, in group");
+            ICollection<TUser> userList = new Collection<TUser>();
+
+            foreach (var users in _followedDictionary.Where(kv => kv.Key == group)
+                .Select(kv => kv.Value.ToList()))
+            {
+                foreach (var user in users)
+                {
+                    userList.Add(user);
+                }
+            }
+
+            return userList;
         }
     }
 }
