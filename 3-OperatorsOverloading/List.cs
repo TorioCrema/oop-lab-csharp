@@ -36,20 +36,14 @@ namespace OperatorsOverloading
         /// </summary>
         /// <param name="enumerable">the array of elements to put on the list.</param>
         /// <returns>a new list with the given elements.</returns>
-        public static implicit operator List<TValue>(TValue[] enumerable)
-        {
-            return List.From(enumerable as IEnumerable<TValue>);
-        }
+        public static implicit operator List<TValue>(TValue[] enumerable) => List.From(enumerable as IEnumerable<TValue>);
 
         /// <summary>
         /// Converts the given element into a new list implicitly.
         /// </summary>
         /// <param name="element">the element to put on the list.</param>
         /// <returns>a new list with only the given element.</returns>
-        public static implicit operator List<TValue>(TValue element)
-        {
-            return List.From(element);
-        }
+        public static implicit operator List<TValue>(TValue element) => List.From(element);
 
         /// <summary>
         /// Converts the given list into a new array explicitly.
