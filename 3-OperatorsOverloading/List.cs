@@ -131,10 +131,7 @@ namespace OperatorsOverloading
         /// <param name="list1">the first list.</param>
         /// <param name="list2">the second list.</param>
         /// <returns>the result list.</returns>
-        public static List<TValue> operator +(List<TValue> list1, List<TValue> list2)
-        {
-            throw new NotImplementedException();
-        }
+        public static List<TValue> operator +(List<TValue> list1, List<TValue> list2) => List.Append(list1, list2);
 
         /// <summary>
         /// Returns a list which contains only the items of <paramref name="list1"/>
