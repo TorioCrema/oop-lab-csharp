@@ -31,10 +31,8 @@ namespace ExtensionMethods
         /// <param name="c1">the first operand.</param>
         /// <param name="c2">the second operand.</param>
         /// <returns>the product.</returns>
-        public static IComplex Multiply(this IComplex c1, IComplex c2)
-        {
-            throw new NotImplementedException();
-        }
+        public static IComplex Multiply(this IComplex c1, IComplex c2) =>
+            new Complex(c1.Real * c2.Real - c1.Imaginary * c2.Imaginary, c1.Real * c2.Imaginary + c1.Imaginary * c2.Real);
 
         /// <summary>
         /// Divide two complex numbers.
