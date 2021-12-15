@@ -50,10 +50,7 @@ namespace OperatorsOverloading
         /// </summary>
         /// <param name="list">the list to transform.</param>
         /// <returns>an array containing the elements of the list.</returns>
-        public static explicit operator TValue[](List<TValue> list)
-        {
-            throw new NotImplementedException();
-        }
+        public static explicit operator TValue[](List<TValue> list) => list.ToFlat().ToArray();
 
         /// <summary>
         /// Determines whether two lists are equal by comparing each of the elements of the lists.
