@@ -123,10 +123,7 @@ namespace OperatorsOverloading
         /// <returns>
         /// <see langword="true"/> if the first list is longer than the second, <see langword="false"/> otherwise.
         /// </returns>
-        public static bool operator >(List<TValue> list1, List<TValue> list2)
-        {
-            throw new NotImplementedException();
-        }
+        public static bool operator >(List<TValue> list1, List<TValue> list2) => list1.Length > list2.Length;
 
         /// <summary>
         /// Chains the two lists together by appending <paramref name="list2"/> to <paramref name="list1"/>.
