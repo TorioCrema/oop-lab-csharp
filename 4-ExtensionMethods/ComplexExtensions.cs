@@ -46,6 +46,14 @@ namespace ExtensionMethods
             new Complex(c1.Real * scalar, c1.Imaginary * scalar);
 
         /// <summary>
+        /// Divide a complex number with a scalar.
+        /// </summary>
+        /// <param name="c1">the complex operand</param>
+        /// <param name="scalar">the scalar operand</param>
+        /// <returns>the quotient of the two operands</returns>
+        public static IComplex Divide(this IComplex c1, double scalar) => c1.Multiply(1.0 / scalar);
+
+        /// <summary>
         /// Divide two complex numbers.
         /// </summary>
         /// <param name="c1">the first operand.</param>
