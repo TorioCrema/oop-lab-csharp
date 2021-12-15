@@ -59,10 +59,7 @@ namespace ExtensionMethods
         /// <param name="c1">the first operand.</param>
         /// <param name="c2">the second operand.</param>
         /// <returns>the quotient.</returns>
-        public static IComplex Divide(this IComplex c1, IComplex c2)
-        {
-            throw new NotImplementedException();
-        }
+        public static IComplex Divide(this IComplex c1, IComplex c2) => c1.Multiply(c2.Reciprocal());
 
         /// <summary>
         /// Get the complex conjugate of a complex number.
