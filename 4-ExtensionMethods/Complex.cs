@@ -20,30 +20,18 @@ namespace ExtensionMethods
         }
 
         /// <inheritdoc cref="IComplex.Real"/>
-        public double Real
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-        }
+        public double Real => re;
 
         /// <inheritdoc cref="IComplex.Imaginary"/>
         public double Imaginary
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
+            get => im;
         }
 
         /// <inheritdoc cref="IComplex.Modulus"/>
         public double Modulus
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
+            get => Math.Sqrt(Math.Pow(Real, 2) + Math.Pow(Imaginary, 2));
         }
 
         /// <inheritdoc cref="IComplex.Phase"/>
