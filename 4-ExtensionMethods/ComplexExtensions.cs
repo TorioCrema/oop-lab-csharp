@@ -56,10 +56,7 @@ namespace ExtensionMethods
         /// </remarks>
         /// <param name="c1">the complex operand.</param>
         /// <returns>the complex conjugate.</returns>
-        public static IComplex Conjugate(this IComplex c1)
-        {
-            throw new NotImplementedException();
-        }
+        public static IComplex Conjugate(this IComplex c1) => new Complex(c1.Real, -c1.Imaginary);
 
         /// <summary>
         /// Get the reciprocal of a complex number.
