@@ -63,7 +63,9 @@ namespace OperatorsOverloading
         /// </returns>
         public static bool operator ==(List<TValue> list1, List<TValue> list2)
         {
-            throw new NotImplementedException();
+            var array1 = (TValue[])list1;
+            var array2 = (TValue[]) list2;
+            return array1.All(e => e.Equals(array2[Array.IndexOf(array1, e)]));
         }
 
         /// <summary>
