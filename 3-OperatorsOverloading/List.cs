@@ -142,7 +142,8 @@ namespace OperatorsOverloading
         /// <returns>the result list.</returns>
         public static List<TValue> operator -(List<TValue> list1, List<TValue> list2)
         {
-            throw new NotImplementedException();
+            var second = list2.ToFlat().ToList();
+            return List.From(list2.ToFlat().Where(x => !second.Contains(x)));
         }
 
         /// <summary>
