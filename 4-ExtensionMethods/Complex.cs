@@ -23,10 +23,7 @@ namespace ExtensionMethods
         public double Real => re;
 
         /// <inheritdoc cref="IComplex.Imaginary"/>
-        public double Imaginary
-        {
-            get => im;
-        }
+        public double Imaginary => im;
 
         /// <inheritdoc cref="IComplex.Modulus"/>
         public double Modulus
@@ -35,13 +32,7 @@ namespace ExtensionMethods
         }
 
         /// <inheritdoc cref="IComplex.Phase"/>
-        public double Phase
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-        }
+        public double Phase => Math.Atan2(Imaginary, Real);
 
         /// <inheritdoc cref="IComplex.ToString"/>
         public override string ToString()
