@@ -32,6 +32,10 @@ namespace Exceptions
         public void AddLast(object item)
         {
             // TODO ensure objects can only be inserted if the item is queue is not full
+            if (Count == Capacity)
+            {
+                throw new FullQueueException("Cannot add item to full queue.");
+            }
             _items[_lastIndex % Capacity] = item;
             _lastIndex++;
         }
