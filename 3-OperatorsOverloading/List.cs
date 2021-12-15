@@ -91,10 +91,7 @@ namespace OperatorsOverloading
         /// <see langword="true"/> if the first list is longer or equal to the second,
         /// <see langword="false"/> otherwise.
         /// </returns>
-        public static bool operator >=(List<TValue> list1, List<TValue> list2)
-        {
-            throw new NotImplementedException();
-        }
+        public static bool operator >=(List<TValue> list1, List<TValue> list2) => list1.Length >= list2.Length;
 
         /// <summary>
         /// Determines whether the <see cref="Length"/> of the <paramref name="list1"/> is lower or equal
