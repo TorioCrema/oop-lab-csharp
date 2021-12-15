@@ -79,10 +79,7 @@ namespace OperatorsOverloading
         /// <returns>
         /// <see langword="true"/> if the two source lists are not equal; otherwise, <see langword="false"/>.
         /// </returns>
-        public static bool operator !=(List<TValue> list1, List<TValue> list2)
-        {
-            throw new NotImplementedException();
-        }
+        public static bool operator !=(List<TValue> list1, List<TValue> list2) => !(list1 == list2);
 
         /// <summary>
         /// Determines whether the <see cref="Length"/> of the <paramref name="list1"/> is greater or equal
