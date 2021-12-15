@@ -1,4 +1,5 @@
 using System;
+using System.Security.Cryptography;
 
 namespace ExtensionMethods
 {
@@ -33,6 +34,16 @@ namespace ExtensionMethods
         /// <returns>the product.</returns>
         public static IComplex Multiply(this IComplex c1, IComplex c2) =>
             new Complex(c1.Real * c2.Real - c1.Imaginary * c2.Imaginary, c1.Real * c2.Imaginary + c1.Imaginary * c2.Real);
+
+
+        /// <summary>
+        /// Multiply a complex number with a scalar.
+        /// </summary>
+        /// <param name="c1">the complex operand</param>
+        /// <param name="scalar">the scalar operand</param>
+        /// <returns>the product of the two operands.</returns>
+        public static IComplex Multiply(this IComplex c1, double scalar) =>
+            new Complex(c1.Real * scalar, c1.Imaginary * scalar);
 
         /// <summary>
         /// Divide two complex numbers.
